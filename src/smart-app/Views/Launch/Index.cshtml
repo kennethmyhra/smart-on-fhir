@@ -1,0 +1,15 @@
+﻿
+<h2>Index</h2>
+
+<p>Code = @ViewBag.code</p>
+
+<script>
+    var code = '@(ViewBag.code)';
+    var state = '@(ViewBag.state)';
+    var iss = '@(Context.Request.Query["iss"].FirstOrDefault())'
+    var launch = '@(Context.Request.Query["launch"].FirstOrDefault())';
+</script>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/fhir-client.js"></script>
+<script src="~/js/launch.js"></script>

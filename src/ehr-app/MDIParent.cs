@@ -106,6 +106,12 @@ namespace EHRApp
 
         private void OpenPediatricGrowthChartApplication(object sender, EventArgs e)
         {
+            IPatientData patientData = ActiveMdiChild as IPatientData;
+            if (patientData == null)
+            {
+                MessageBox.Show(this, "No patient has been selected, please select a patient", "No patient selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             SMARTForm smartForm = new SMARTForm();
             smartForm.MdiParent = this;
             smartForm.WindowState = FormWindowState.Maximized;
@@ -114,7 +120,7 @@ namespace EHRApp
             SmartApplication application = Globals.GetSmartApplicationSettings(applicationKey);
 
             smartForm.Show();
-            smartForm.LoadSmartApp(application, Globals.ApplicationSettings.FhirBaseUrl, "SMART-1482713");
+            smartForm.LoadSmartApp(application, Globals.ApplicationSettings.FhirBaseUrl, patientData.Patient.Id);
         }
     }
 }

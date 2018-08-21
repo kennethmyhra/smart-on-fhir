@@ -3,6 +3,7 @@ using IdentityServer4.Models;
 using IdentityServer4.Test;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace EHR.AuthorizationServer
 {
@@ -19,6 +20,12 @@ namespace EHR.AuthorizationServer
                     Patient = "SMART-1482713"
                 }
             };
+        }
+
+        public static LaunchContext GetLaunchContext(string launchContextId, string clientId)
+        {
+            return GetLaunchContexts()
+                ?.SingleOrDefault(c => c.Id == launchContextId && c.ClientId == clientId);
         }
 
         // scopes define the resources in your system

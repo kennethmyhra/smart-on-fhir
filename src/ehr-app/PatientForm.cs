@@ -4,20 +4,20 @@ using Hl7.Fhir.Model;
 
 namespace EHRApp
 {
-    public partial class PatientForm : Form
+    public partial class PatientForm : Form, IPatientData
     {
         public PatientForm()
         {
             InitializeComponent();
         }
 
+        public Patient Patient { get; internal set; }
+
         internal void SetPatient(Patient patient)
         {
             Patient = patient;
             PopulateForm(Patient);
         }
-
-        internal Patient Patient { get; private set; }
 
         private void PopulateForm(Patient patient)
         {

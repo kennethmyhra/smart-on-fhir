@@ -120,7 +120,7 @@ namespace EHRApp
             SmartApplication application = Globals.GetSmartApplicationSettings(applicationKey);
 
             smartForm.Show();
-            smartForm.LoadSmartApp(application, Globals.ApplicationSettings.FhirBaseUrl, patientData.Patient.Id);
+            smartForm.LoadSmartApp(application, Globals.ApplicationSettings.FhirBaseUrl, "0a25036c-ed4c-4fad-a806-3dec4d58bc42");
         }
     }
 }

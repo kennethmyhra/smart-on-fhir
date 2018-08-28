@@ -19,7 +19,7 @@ namespace EHR.AuthorizationServer
         {
             request.CustomResponse = new Dictionary<string, object>
             {
-                { "patient", "SMART-1482713" }
+                { "patient", "smart-1482713" }
             };
 
             return base.ProcessAsync(request); 

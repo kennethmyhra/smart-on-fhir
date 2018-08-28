@@ -45,9 +45,9 @@ namespace EHRApp
             return (MDIParent)MdiParent;
         }
 
-        public void LoadSmartApp(SmartApplication application, string fhirBaseUrl, string patientId)
+        public void LoadSmartApp(SmartApplication application, string fhirBaseUrl, string launchId)
         {
-            _browser.Load($"{application.Url}?fhirServiceUrl={fhirBaseUrl}&patientId={patientId}");
+            _browser.Load($"{application.Url}?iss={fhirBaseUrl}&launch={launchId}");
         }
         
         private void OnBrowserAddressChanged(object sender, AddressChangedEventArgs e)

@@ -31,7 +31,7 @@ var redirectUri = "http://localhost:5002/Launch";
 // Prep the token exchange call parameters
 var data = {
     client_id: clientId,
-    client_secret: secret,
+    //client_secret: secret,
     code: code,
     grant_type: 'authorization_code',
     redirect_uri: redirectUri,

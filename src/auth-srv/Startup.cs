@@ -7,6 +7,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using System.Reflection;
+using Microsoft.Extensions.DependencyInjection;
+using IdentityServer4.Validation;
 
 namespace EHR.AuthorizationServer
 {
@@ -26,6 +28,7 @@ namespace EHR.AuthorizationServer
             services.AddMvc();
             
             services.AddTransient<ITokenResponseGenerator, CustomTokenGenerator>();
+            services.AddTransient<ISecretValidator, CustomClientSecretValidator>();
 
             // configure identity server with in-memory stores, keys, clients and resources
             services.AddIdentityServer()

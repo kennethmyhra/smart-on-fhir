@@ -27,6 +27,7 @@ var clientId = "7d26357a-6904-4b93-8759-b53f635a6241";
 var secret = "secret";
 var serviceUri = "http://localhost:5000/connect/token";
 var redirectUri = "http://localhost:5002/Launch";
+var launch = "21984d1d-8c96-4f76-afe4-9e9a262ccd8c";
 
 // Prep the token exchange call parameters
 var data = {

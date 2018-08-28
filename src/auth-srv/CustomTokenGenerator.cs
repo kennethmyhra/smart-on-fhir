@@ -17,10 +17,22 @@ namespace EHR.AuthorizationServer
 
         public override Task<TokenResponse> ProcessAsync(TokenRequestValidationResult request)
         {
-            request.CustomResponse = new Dictionary<string, object>
+            string clientId = request.ValidatedRequest.Client.ClientId;
+            string launchId = request.ValidatedRequest.Raw.Get("launch");
+
+            if (!string.IsNullOrEmpty(clientId) && !string.IsNullOrEmpty(launchId))
             {
-                { "patient", "smart-1482713" }
-            };
+                LaunchContext launchContext = Config.GetLaunchContext(launchId, clientId);
+                if (launchContext != null)
+                {
+                    request.CustomResponse = new Dictionary<string, object>
+                    {
+                        { "patient", launchContext.Patient },
+                        { "practitioner", launchContext.Practitioner },
+                        { "encounter", launchContext.Encounter }
+                    };
+                }
+            }
 
             return base.ProcessAsync(request); 
         }

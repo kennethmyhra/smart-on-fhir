@@ -1,34 +1,20 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
-    <AssemblyName>auth-srv</AssemblyName>
-    <RootNamespace>EHR.AuthorizationServer</RootNamespace>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="Data\**" />
-    <Content Remove="Data\**" />
-    <EmbeddedResource Remove="Data\**" />
-    <None Remove="Data\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\Consent\" />
-    <Folder Include="Views\Shared\" />
-    <Folder Include="wwwroot\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="IdentityServer4" Version="2.2.0" />
-    <PackageReference Include="IdentityServer4.EntityFramework" Version="2.1.1" />
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.9" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.2" />
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
-  </ItemGroup>
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <RootNamespace>SmartDemo.AuthServer</RootNamespace>
+    </PropertyGroup>
 
     <ItemGroup>
-        <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
+      <Compile Remove="20200131-backup\**" />
+      <Content Remove="20200131-backup\**" />
+      <EmbeddedResource Remove="20200131-backup\**" />
+      <None Remove="20200131-backup\**" />
     </ItemGroup>
-    
+
+    <ItemGroup>
+        <PackageReference Include="IdentityServer4" Version="4.1.1" />
+
+        <PackageReference Include="Serilog.AspNetCore" Version="3.4.0" />
+    </ItemGroup>
 </Project>

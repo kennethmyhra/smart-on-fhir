@@ -13,8 +13,6 @@ namespace EHRApp
 {
     public partial class MDIParent : Form
     {
-        private int childFormNumber = 0;
-
         public MDIParent()
         {
             InitializeComponent();

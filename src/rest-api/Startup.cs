@@ -12,8 +12,7 @@ namespace EHR.RestApi
         public void ConfigureServices(IServiceCollection services)
         {
             services
-                .AddMvcCore()
-                .AddJsonFormatters()
+                .AddMvcCore(options => options.EnableEndpointRouting = false)
                 .AddAuthorization();
 
             services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
@@ -26,7 +25,7 @@ namespace EHR.RestApi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseAuthentication();
 

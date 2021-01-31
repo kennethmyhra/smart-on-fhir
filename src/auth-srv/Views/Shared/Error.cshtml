@@ -1,15 +1,13 @@
-﻿@using Microsoft.AspNetCore.Hosting
 @model ErrorViewModel
-@inject IHostingEnvironment host
 
 @{
-    var error = Model?.Error;
-    var errorDescription = host.IsDevelopment() ? Model?.ErrorDescription : null;
-    var request_id = Model?.RequestId;
+    var error = Model?.Error?.Error;
+    var errorDescription = Model?.Error?.ErrorDescription;
+    var request_id = Model?.Error?.RequestId;
 }
 
 <div class="error-page">
-    <div class="page-header">
+    <div class="lead">
         <h1>Error</h1>
     </div>
 
